@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) =>{
-    const Producto = sequelize.define("producto", {
+    const Producto = sequelize.define("productos", {
         id: {
             allowNull: false,
             autoIncrement: true,
@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) =>{
         
     });
 
-    return Producto
+    return Producto;
 }
 
 //Se define el modelo para la creación de la tabla Productos

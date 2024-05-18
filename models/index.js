@@ -25,5 +25,6 @@ db.sequelize = sequelize
 
 db.productos = require('../models/productModel')(sequelize, DataTypes)
 db.sequelize.sync({force:false})
+//db.sequelize.sync()
  
 module.exports = db

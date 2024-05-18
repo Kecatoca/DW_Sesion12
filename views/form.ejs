@@ -5,12 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/public/style.css">
   <title>Login</title>
+  
 </head>
 <body>
+  <header>
+    <nav>
+      <a href="/home">Inicio</a>
+      <a href="/Contacto">Contacto</a>
+      <a href="/registro">Registrarte</a>
+    </nav>
+
+  </header>
+
   <section class="login-container">
     <h2>Nuevo Registro</h2>
-    <form action="/productos/new" method="POST" class="login">
-     <section class="campos">  
+    <form action="/productos" method="POST" class="login">
+      
+      <section class="campos">  
         <label>Nombre:</label><br>
         <input type="text" name="nombre">
       </section>

@@ -1,27 +1,35 @@
-const db = require('../models')  //importamos la carpeta de los modelos 
 
-const Productos = db.productos
+const db = require('../models/index');  //importamos la carpeta de los modelos 
+//import db from '../models/index';
 
+//const Producto = require('../models/productModel') 
+const Producto = db.productos;
 //Crear producto
 
 module.exports = {
-    create: function(req,res) {
-        Productos.create({
-          nombre: req.body.nombre,
-          descripcion: req.body.descripcion,
-          precio: req.body.precio          
-        }).then(result=>{
-          res.json(result);
-        }).catch(err=>{
-          console.log(err);
-          res.json(err);
-        })
-    },
-    new: function(req,res) {
-      res.render('form');
-    } 
+    create: async function(req,res) {
+     
+      try {
+      
+        const {nombre, descripcion, precio } = req.body;
+        await Producto.create({nombre, descripcion, precio });
+         
+          res.send('Registro guardado exitosamente');
+        //res.send(`User created successfully! ID: ${Producto.id}`);
+      } 
+      catch (error) {
+        //if (transaction) await transaction.rollback();
+        console.error(error);
+        res.status(500).send('Error creating user');
+      }  
+     
+      
+  }
+    };
     
-  };
+
+   
+   
 
 
  
